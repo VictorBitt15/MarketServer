@@ -24,4 +24,13 @@ public class HelloServer extends UnicastRemoteObject implements HelloServerInter
 		return "hello word!";
 	}
 
+	@Override
+	public void hud() throws RemoteException{
+		System.out.println("-----Olá, Consumidor--------------------");
+		System.out.println("-----Digite a opção desejada-----");
+		System.out.println("-----(1) Adicionar produto na lista-----");
+		System.out.println("-----(2) Pesquisa de produtos-----");
+		System.out.println("-----(3) Finalizar-----");
+	}
+
 }

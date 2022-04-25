@@ -12,7 +12,7 @@ public class Main {
 		
 		HelloServerInterface server = (HelloServerInterface)
 				Naming.lookup("rmi://127.0.0.1:1099/HelloServer");
-		
+/*		
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println(server.helloWorld());
@@ -20,8 +20,8 @@ public class Main {
 		
 		System.out.println("Digite um nome");
 		String name = sc.nextLine();
-		
-		server.hello(name);
+*/
+		server.hud();
 	}
 
 }

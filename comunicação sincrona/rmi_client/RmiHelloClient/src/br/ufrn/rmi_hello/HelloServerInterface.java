@@ -9,4 +9,6 @@ public interface HelloServerInterface extends Remote{
 	
 	public String helloWorld() throws RemoteException;
 
+	public void hud() throws RemoteException;
+
 }
