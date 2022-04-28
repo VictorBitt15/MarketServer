@@ -28,6 +28,10 @@ public class MarketServer extends UnicastRemoteObject implements MarketServerInt
 	@Override
 	public void receiveProductList(List<Product> productList) throws RemoteException {
 			this.products=productList;
+			System.out.println("Lista Recebida!");
+			for(Product e : productList){
+				System.out.println(e.getName());
+			}
 	}
 
 	private class MarketServerOption extends Thread {
