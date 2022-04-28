@@ -9,8 +9,6 @@ public class MarketClient extends UnicastRemoteObject implements MarketClientInt
 
 	protected MarketClient() throws RemoteException {
 		super();
-
-		// new MarketServerOption().start();
 	}
 
 	@Override
@@ -20,14 +18,4 @@ public class MarketClient extends UnicastRemoteObject implements MarketClientInt
 		System.out.println("hello to: " + name);
 
 	}
-
-	// private class MarketServerOption extends Thread {
-	// 	public void run() {
-	// 		/**
-	// 		 * Teremos aqui as opções do lado do client
-	// 		 * 		(1) Envio da lista de produtos
-	// 		 * 		(0) Sair do sistema
-	// 		 */
-	// 	}
-	// }
 }

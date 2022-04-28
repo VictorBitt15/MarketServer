@@ -1,6 +1,8 @@
 package interfaces;
 
-public interface ServerSideSystemInterface {
+import java.rmi.Remote;
+
+public interface ServerSideSystemInterface extends Remote{
 
     public String serverMainHud();
 }

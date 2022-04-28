@@ -2,6 +2,7 @@ package rmiServer;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.List;
 
 import interfaces.*;
@@ -9,9 +10,10 @@ import models.Product;
 
 public class MarketServer extends UnicastRemoteObject implements MarketServerInterface {
 
+	List<Product> products;
 	protected MarketServer() throws RemoteException {
 		super();
-
+		products = new ArrayList<>();
 		new MarketServerOption().start();
 	}
 
@@ -25,7 +27,7 @@ public class MarketServer extends UnicastRemoteObject implements MarketServerInt
 
 	@Override
 	public void receiveProductList(List<Product> productList) throws RemoteException {
-		// TODO Auto-generated method stub
+			this.products=productList;
 	}
 
 	private class MarketServerOption extends Thread {

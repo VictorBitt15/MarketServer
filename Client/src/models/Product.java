@@ -12,7 +12,9 @@ public class Product {
 		this.name = name;
 		this.value = value;
 	}  
-
+    public Product(String name){
+        this.name = name;
+    }
     public String getCnpj() {
         return cnpj;
     }
