@@ -71,7 +71,7 @@ public class MarketServer extends UnicastRemoteObject implements MarketServerInt
 			
 			Product lowestPriceProduct = clientProductFiltered.stream()
 				.min(Comparator.comparing(Product::getValue))
-				.orElseThrow(NoSuchElementException::new);
+				.orElse(null);
 
 			lowestPriceList.add(lowestPriceProduct);
 		}
@@ -86,12 +86,18 @@ public class MarketServer extends UnicastRemoteObject implements MarketServerInt
 		));
 
 		for (Product lowestPriceItem: lowestPriceList) {
-			client.printMessage(new Message(
-				"|Produto: " + lowestPriceItem.getName() +
-				" Valor: " + lowestPriceItem.getValue() + 
-				" Supermercado: " + lowestPriceItem.getCnpj()
-			));
+			if (!(lowestPriceItem == null)) {
+				client.printMessage(new Message(
+					"|Produto: " + lowestPriceItem.getName() +
+					" Valor: " + lowestPriceItem.getValue() + 
+					" Supermercado: " + lowestPriceItem.getCnpj()
+				));
+			}
 		}
+
+		client.printMessage(new Message(
+			"|AVISO: Produtos não listados não estão disponíveis em mercado algum.|"
+		));
 
 		client.printMessage(new Message(
 			"|**************************|"
