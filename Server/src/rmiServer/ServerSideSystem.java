@@ -30,6 +30,7 @@ public class ServerSideSystem extends UnicastRemoteObject implements ServerSideS
         System.out.println("| (2) Registrar novo Produto      |");
         System.out.println("| (3) Registro(s) de Supermercados|");
         System.out.println("| (4) Registro(s) de Produtos     |");
+        System.out.println("| (0) Sair do Sistema             |");
         System.out.println("|*********************************|");
           System.out.print("|Operação: ");
           String operation = sc.nextLine();
@@ -182,8 +183,9 @@ public class ServerSideSystem extends UnicastRemoteObject implements ServerSideS
                             System.out.println();
                         }
                         break;
-                    
-                    
+                    case "0":
+                        System.exit(0);
+                        break;
                     default:
                         break;
                 }
