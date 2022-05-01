@@ -15,9 +15,14 @@ public class Product implements Serializable{
 		this.name = name;
 		this.value = value;
 	}  
+    
     public Product(String name){
         this.name = name;
     }
+
+    public Product(){
+    }
+
     public String getCnpj() {
         return cnpj;
     }

@@ -6,17 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import interfaces.*;
 import models.*;
-import interfaces.ServerSideSystemInterface;
 
 
 public class ServerSideSystem extends UnicastRemoteObject implements ServerSideSystemInterface {
+    private MarketServerInterface server;
 
-    protected ServerSideSystem() throws RemoteException {	
+    public ServerSideSystem(MarketServerInterface server) throws RemoteException {	
         super();
+        this.server = server;
 
         System.out.println("Server de mercados inicializado.");
-        System.out.println();
 		new ServerSideOptions().start();
 	}
 
@@ -29,7 +30,6 @@ public class ServerSideSystem extends UnicastRemoteObject implements ServerSideS
         System.out.println("| (2) Registrar novo Produto      |");
         System.out.println("| (3) Registro(s) de Supermercados|");
         System.out.println("| (4) Registro(s) de Produtos     |");
-        System.out.println("| (0) Sair do Sistema             |");
         System.out.println("|*********************************|");
           System.out.print("|Operação: ");
           String operation = sc.nextLine();
@@ -85,6 +85,7 @@ public class ServerSideSystem extends UnicastRemoteObject implements ServerSideS
                             } else {
                                 Market market = new Market(marketName, marketCnpj);
                                 marketList.add(market);
+                                server.updateMarketList(marketList);
                             }
                         } catch (RemoteException e) {
                             e.printStackTrace();
@@ -137,6 +138,7 @@ public class ServerSideSystem extends UnicastRemoteObject implements ServerSideS
                                     Float floatproductValue = Float.parseFloat(productValue);
                                     Product product = new Product(productMarketCnpj, productName, floatproductValue);
                                     productList.add(product);
+                                    server.updateProductList(productList);
                                 } else {
                                     break;
                                 }
