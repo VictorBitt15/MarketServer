@@ -86,9 +86,8 @@ public class ClientSideSystem extends UnicastRemoteObject implements ClientSideS
                             break;
                     }
                     if(!isAlive){ break;}
-                } catch (RemoteException e1) {
-                    
-                    e1.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
                 
                 

@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 import interfaces.*;
+import models.*;
 
 public class MarketClient extends UnicastRemoteObject implements MarketClientInterface {
 
@@ -12,10 +13,8 @@ public class MarketClient extends UnicastRemoteObject implements MarketClientInt
 	}
 
 	@Override
-	public void hello(String name)
-			throws RemoteException {
-
-		System.out.println("hello to: " + name);
-
+	public void printMessage(Message message) throws RemoteException {
+		System.out.println(message);
 	}
+
 }
