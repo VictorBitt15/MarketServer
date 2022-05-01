@@ -48,7 +48,6 @@ public class ClientSideSystem extends UnicastRemoteObject implements ClientSideS
             Scanner sc = new Scanner(System.in);
             while(true){
                 String operation;
-                boolean isAlive = true;
                 
                 try {
                     operation = serverClientHud();
@@ -80,12 +79,11 @@ public class ClientSideSystem extends UnicastRemoteObject implements ClientSideS
                             break;
     
                         case "0":
-                            isAlive = false;
+                            System.exit(0);
                             break;
                         default:
                             break;
                     }
-                    if(!isAlive){ break;}
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
